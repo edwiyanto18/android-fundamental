@@ -7,9 +7,10 @@ Each stage in an activity's lifecycle has a corresponding callback method: onCre
 
 The activity state can also change in response to device-configuration changes, for example when the user rotates the device from portrait to landscape. When these configuration changes happen, the activity is destroyed and recreated in its default state, and the user might lose information that they've entered in the activity. To avoid confusing your users, it's important that you develop your app to prevent unexpected data loss. Later in this practical you experiment with configuration changes and learn how to preserve an activity's state in response to device configuration changes and other activity lifecycle events.
 
-
+Task 1 : Add lifecycle callbacks to TwoActivities
+==================================================
 Start application
-=================
+------------------
 06-24 08:43:28.015 5516-5516/com.sb52studio.twoactivitiestwo D/MainActivity: -------
 06-24 08:43:28.015 5516-5516/com.sb52studio.twoactivitiestwo D/MainActivity: onCreate
 06-24 08:43:28.421 5516-5516/com.sb52studio.twoactivitiestwo D/MainActivity: onStart
@@ -23,7 +24,7 @@ Start application
 06-24 08:43:38.984 5516-5516/com.sb52studio.twoactivitiestwo D/MainActivity: onStop
 
 After edit reply in Second Activity and send reply
-===================================================
+---------------------------------------------------
 06-24 08:44:57.663 5516-5516/com.sb52studio.twoactivitiestwo D/SecondActivity: End SecondActivity
 06-24 08:44:57.710 5516-5516/com.sb52studio.twoactivitiestwo D/SecondActivity: onPause
 06-24 08:44:57.749 5516-5516/com.sb52studio.twoactivitiestwo D/MainActivity: onRestart
@@ -33,7 +34,7 @@ After edit reply in Second Activity and send reply
 06-24 08:44:58.171 5516-5516/com.sb52studio.twoactivitiestwo D/SecondActivity: onDestroy
 
 On Rotate the tablet in MainActivity
-====================================
+--------------------------------------
 06-24 09:04:23.437 6004-6004/com.sb52studio.twoactivitiestwo D/MainActivity: onPause
 06-24 09:04:23.445 6004-6004/com.sb52studio.twoactivitiestwo D/MainActivity: onStop
 06-24 09:04:23.445 6004-6004/com.sb52studio.twoactivitiestwo D/MainActivity: onDestroy
@@ -42,6 +43,30 @@ On Rotate the tablet in MainActivity
 06-24 09:04:23.570 6004-6004/com.sb52studio.twoactivitiestwo D/MainActivity: onStart
 06-24 09:04:23.577 6004-6004/com.sb52studio.twoactivitiestwo D/MainActivity: onResume
 
+On Rotate the tablet in SecondActivity
+--------------------------------------
+06-24 09:40:53.406 6358-6358/com.sb52studio.twoactivitiestwo D/SecondActivity: onPause
+06-24 09:40:53.413 6358-6358/com.sb52studio.twoactivitiestwo D/SecondActivity: onStop
+06-24 09:40:53.413 6358-6358/com.sb52studio.twoactivitiestwo D/SecondActivity: onDestroy
+06-24 09:40:53.460 6358-6358/com.sb52studio.twoactivitiestwo D/SecondActivity: *******
+06-24 09:40:53.460 6358-6358/com.sb52studio.twoactivitiestwo D/SecondActivity: onCreate
+06-24 09:40:53.531 6358-6358/com.sb52studio.twoactivitiestwo D/SecondActivity: onStart
+06-24 09:40:53.531 6358-6358/com.sb52studio.twoactivitiestwo D/SecondActivity: onResume
 
+Task 2 : Save and restore the Activity instance state
+=======================================================
+
+Depending on system resources and user behavior, each Activity in your app may be destroyed and reconstructed far more frequently than you might think.
+
+You may have noticed this behavior in the last section when you rotated the device or emulator. Rotating the device is one example of a device configuration change. Although rotation is the most common one, all configuration changes result in the current Activity being destroyed and recreated as if it were new. If you don't account for this behavior in your code, when a configuration change occurs, your Activity layout may revert to its default appearance and initial values, and your users may lose their place, their data, or the state of their progress in your app.
+
+The state of each Activity is stored as a set of key/value pairs in a Bundle object called the Activity instance state. The system saves default state information to instance state Bundle just before the Activity is stopped, and passes that Bundle to the new Activity instance to restore.
+
+To keep from losing data in an Activity when it is unexpectedly destroyed and recreated, you need to implement the onSaveInstanceState() method. The system calls this method on your Activity (between onPause() and onStop()) when there is a possibility the Activity may be destroyed and recreated.
+
+The data you save in the instance state is specific to only this instance of this specific Activity during the current app session. When you stop and restart a new app session, the Activity instance state is lost and the Activity reverts to its default appearance. If you need to save user data between app sessions, use shared preferences or a database.
+
+Save the Activity instance state with onSaveInstanceState()
+-------------------------------------------------------------
 
 

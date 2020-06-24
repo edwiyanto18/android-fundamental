@@ -1,5 +1,6 @@
 package com.sb52studio.twoactivitiestwo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -23,9 +24,20 @@ public class MainActivity extends AppCompatActivity {
         Log.d(LOG_TAG,"-------");
         Log.d(LOG_TAG,"onCreate");
         setContentView(R.layout.activity_main);
+        // Initialize all the view variables.
         mMessageEditText = (EditText) findViewById(R.id.editText_main);
         mReplyHeadTextView = (TextView) findViewById(R.id.text_header_reply);
         mReplyTextView = (TextView) findViewById(R.id.text_message_reply);
+
+        // Restore the state.
+        if(savedInstanceState != null){
+            boolean isVisible = savedInstanceState.getBoolean("reply_visible");
+            if(isVisible){
+                mReplyHeadTextView.setVisibility(View.VISIBLE);
+                mReplyTextView.setText(savedInstanceState.getString("reply_text"));
+                mReplyTextView.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
     public void launchSecondActivity(View view) {
@@ -71,6 +83,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Log.d(LOG_TAG,"onDestroy");
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if(mReplyHeadTextView.getVisibility() == View.VISIBLE){
+            outState.putBoolean("reply_visible",true);
+            outState.putString("reply_text",mReplyTextView.getText().toString());
+        }
+
     }
 
     @Override
