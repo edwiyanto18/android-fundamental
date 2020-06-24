@@ -57,6 +57,24 @@ Task 2 : Save and restore the Activity instance state
 =======================================================
 
 Depending on system resources and user behavior, each Activity in your app may be destroyed and reconstructed far more frequently than you might think.
+You may have noticed this behavior in the last section when you rotated the device or emulator. Rotating the device is one example of a device configuration change. Although rotation is the most common one, all configuration changes result in the current Activity being destroyed and recreated as if it were new. If you don't account for this behavior in your code, when a configuration change occurs, your Activity layout may revert to its default appearance and initial values, and your users may lose their place, their data, or the state of their progress in your app.
+
+The state of each Activity is stored as a set of key/value pairs in a Bundle object called the Activity instance state. The system saves default state information to instance state Bundle just before the Activity is stopped, and passes that Bundle to the new Activity instance to restore.
+
+To keep from losing data in an Activity when it is unexpectedly destroyed and recreated, you need to implement the onSaveInstanceState() method. The system calls this method on your Activity (between onPause() and onStop()) when there is a possibility the Activity may be destroyed and recreated.
+
+The data you save in the instance state is specific to only this instance of this specific Activity during the current app session. When you stop and restart a new app session, the Activity instance state is lost and the Activity reverts to its default appearance. If you need to save user data between app sessions, use shared preferences or a database. You learn about both of these in a later practical. 
+
+--------------------------------------------------------------------
+
+
+Save the Activity instance state with onSaveInstanceState()
+-------------------------------------------------------------
+You may have noticed that rotating the device does not affect the state of the second Activity at all. This is because the second Activity layout and state are generated from the layout and the Intent that activated it. Even if the Activity is recreated, the Intent is still there and the data in that Intent is still used each time the onCreate() method in the second Activity is called.
+
+In addition, you may notice that in each Activity, any text you typed into message or reply EditText elements is retained even when the device is rotated. This is because the state information of some of the View elements in your layout are automatically saved across configuration changes, and the current value of an EditText is one of those cases.
+
+So the only Activity state you're interested in are the TextView elements for the reply header and the reply text in the main Activity. Both TextView elements are invisible by default; they only appear once you send a message back to the main Activity from the second Activity. 
 
 You may have noticed this behavior in the last section when you rotated the device or emulator. Rotating the device is one example of a device configuration change. Although rotation is the most common one, all configuration changes result in the current Activity being destroyed and recreated as if it were new. If you don't account for this behavior in your code, when a configuration change occurs, your Activity layout may revert to its default appearance and initial values, and your users may lose their place, their data, or the state of their progress in your app.
 
@@ -66,7 +84,57 @@ To keep from losing data in an Activity when it is unexpectedly destroyed and re
 
 The data you save in the instance state is specific to only this instance of this specific Activity during the current app session. When you stop and restart a new app session, the Activity instance state is lost and the Activity reverts to its default appearance. If you need to save user data between app sessions, use shared preferences or a database.
 
-Save the Activity instance state with onSaveInstanceState()
--------------------------------------------------------------
+MainActivity.java
+-----------------
+@Override
+public void onSaveInstanceState(Bundle outState) {
+   super.onSaveInstanceState(outState);
+   // If the heading is visible, message needs to be saved.
+   // Otherwise we're still using default layout.
+   if (mReplyHeadTextView.getVisibility() == View.VISIBLE) {
+       outState.putBoolean("reply_visible", true);
+       outState.putString("reply_text", 
+                      mReplyTextView.getText().toString());
+   }
+}
+
+
+ Restore the Activity instance state in onCreate() 
+--------------------------------------------------
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+   super.onCreate(savedInstanceState);
+   setContentView(R.layout.activity_main);
+
+   Log.d(LOG_TAG, "-------");
+   Log.d(LOG_TAG, "onCreate");
+
+   // Initialize all the view variables.
+   mMessageEditText = findViewById(R.id.editText_main);
+   mReplyHeadTextView = findViewById(R.id.text_header_reply);
+   mReplyTextView = findViewById(R.id.text_message_reply);
+
+   // Restore the saved state. 
+   // See onSaveInstanceState() for what gets saved.
+   if (savedInstanceState != null) {
+       boolean isVisible = 
+                     savedInstanceState.getBoolean("reply_visible");
+       // Show both the header and the message views. If isVisible is
+       // false or missing from the bundle, use the default layout.
+       if (isVisible) {
+           mReplyHeadTextView.setVisibility(View.VISIBLE);
+           mReplyTextView.setText(savedInstanceState
+                                  .getString("reply_text"));
+           mReplyTextView.setVisibility(View.VISIBLE);
+       }
+   }
+}
+
+Coding Chalenge : Shopping List
+
+
+
+
 
 
