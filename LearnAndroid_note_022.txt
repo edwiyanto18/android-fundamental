@@ -8,3 +8,40 @@ Each stage in an activity's lifecycle has a corresponding callback method: onCre
 The activity state can also change in response to device-configuration changes, for example when the user rotates the device from portrait to landscape. When these configuration changes happen, the activity is destroyed and recreated in its default state, and the user might lose information that they've entered in the activity. To avoid confusing your users, it's important that you develop your app to prevent unexpected data loss. Later in this practical you experiment with configuration changes and learn how to preserve an activity's state in response to device configuration changes and other activity lifecycle events.
 
 
+Start application
+=================
+06-24 08:43:28.015 5516-5516/com.sb52studio.twoactivitiestwo D/MainActivity: -------
+06-24 08:43:28.015 5516-5516/com.sb52studio.twoactivitiestwo D/MainActivity: onCreate
+06-24 08:43:28.421 5516-5516/com.sb52studio.twoactivitiestwo D/MainActivity: onStart
+06-24 08:43:28.421 5516-5516/com.sb52studio.twoactivitiestwo D/MainActivity: onResume
+06-24 08:43:38.343 5516-5516/com.sb52studio.twoactivitiestwo D/MainActivity: Button Send is clicked
+06-24 08:43:38.382 5516-5516/com.sb52studio.twoactivitiestwo D/MainActivity: onPause
+06-24 08:43:38.406 5516-5516/com.sb52studio.twoactivitiestwo D/SecondActivity: *******
+06-24 08:43:38.406 5516-5516/com.sb52studio.twoactivitiestwo D/SecondActivity: onCreate
+06-24 08:43:38.460 5516-5516/com.sb52studio.twoactivitiestwo D/SecondActivity: onStart
+06-24 08:43:38.460 5516-5516/com.sb52studio.twoactivitiestwo D/SecondActivity: onResume
+06-24 08:43:38.984 5516-5516/com.sb52studio.twoactivitiestwo D/MainActivity: onStop
+
+After edit reply in Second Activity and send reply
+===================================================
+06-24 08:44:57.663 5516-5516/com.sb52studio.twoactivitiestwo D/SecondActivity: End SecondActivity
+06-24 08:44:57.710 5516-5516/com.sb52studio.twoactivitiestwo D/SecondActivity: onPause
+06-24 08:44:57.749 5516-5516/com.sb52studio.twoactivitiestwo D/MainActivity: onRestart
+06-24 08:44:57.749 5516-5516/com.sb52studio.twoactivitiestwo D/MainActivity: onStart
+06-24 08:44:57.749 5516-5516/com.sb52studio.twoactivitiestwo D/MainActivity: onResume
+06-24 08:44:58.171 5516-5516/com.sb52studio.twoactivitiestwo D/SecondActivity: onStop
+06-24 08:44:58.171 5516-5516/com.sb52studio.twoactivitiestwo D/SecondActivity: onDestroy
+
+On Rotate the tablet in MainActivity
+====================================
+06-24 09:04:23.437 6004-6004/com.sb52studio.twoactivitiestwo D/MainActivity: onPause
+06-24 09:04:23.445 6004-6004/com.sb52studio.twoactivitiestwo D/MainActivity: onStop
+06-24 09:04:23.445 6004-6004/com.sb52studio.twoactivitiestwo D/MainActivity: onDestroy
+06-24 09:04:23.507 6004-6004/com.sb52studio.twoactivitiestwo D/MainActivity: -------
+06-24 09:04:23.507 6004-6004/com.sb52studio.twoactivitiestwo D/MainActivity: onCreate
+06-24 09:04:23.570 6004-6004/com.sb52studio.twoactivitiestwo D/MainActivity: onStart
+06-24 09:04:23.577 6004-6004/com.sb52studio.twoactivitiestwo D/MainActivity: onResume
+
+
+
+
