@@ -1,0 +1,10 @@
+Android fundamentals 02.2: Activity lifecycle and state
+*******************************************************
+
+The lifecycle is the set of states an activity can be in during its entire lifetime, from when it's created to when it's destroyed and the system reclaims its resources. As a user navigates between activities in your app (as well as into and out of your app), activities transition between different states in their lifecycles.
+
+Each stage in an activity's lifecycle has a corresponding callback method: onCreate(), onStart(), onPause(), and so on. When an activity changes state, the associated callback method is invoked. You've already seen one of these methods: onCreate(). By overriding any of the lifecycle callback methods in your Activity classes, you can change the activity's default behavior in response to user or system actions.
+
+The activity state can also change in response to device-configuration changes, for example when the user rotates the device from portrait to landscape. When these configuration changes happen, the activity is destroyed and recreated in its default state, and the user might lose information that they've entered in the activity. To avoid confusing your users, it's important that you develop your app to prevent unexpected data loss. Later in this practical you experiment with configuration changes and learn how to preserve an activity's state in response to device configuration changes and other activity lifecycle events.
+
+

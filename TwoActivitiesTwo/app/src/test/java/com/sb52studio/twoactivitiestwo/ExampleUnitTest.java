@@ -1,4 +1,4 @@
-package com.sb52studio.twoactivities;
+package com.sb52studio.twoactivitiestwo;
 
 import org.junit.Test;
 
