@@ -1,0 +1,96 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:17:1-34:12
+INJECTED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:17:1-34:12
+INJECTED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:17:1-34:12
+INJECTED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:17:1-34:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/bapaq/.gradle/caches/transforms-2/files-2.1/9bab41cd1cac7e96d8cf039a3df31825/appcompat-v7-27.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] /home/bapaq/.gradle/caches/transforms-2/files-2.1/af44a2020543186d4e4449c2c57f9562/support-fragment-27.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/bapaq/.gradle/caches/transforms-2/files-2.1/1f2892c38e9840c58ab405413fb28632/animated-vector-drawable-27.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/bapaq/.gradle/caches/transforms-2/files-2.1/737391e76ecd5748c55f71a982c2dc3e/support-core-ui-27.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/bapaq/.gradle/caches/transforms-2/files-2.1/ec9a9e48e73878aaa31602796e8d1fcf/support-core-utils-27.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/bapaq/.gradle/caches/transforms-2/files-2.1/d71c4a7453c2c65e83a32ca7f1ac2b2d/support-vector-drawable-27.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] /home/bapaq/.gradle/caches/transforms-2/files-2.1/ea0ee35f22a88ff9d8bac691cda371e2/support-compat-27.1.1/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/bapaq/.gradle/caches/transforms-2/files-2.1/92a577ba1cbf7d21b00d35b3ea7a240d/livedata-core-1.1.0/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/bapaq/.gradle/caches/transforms-2/files-2.1/ef6843ea5770e504c24b448e1bb8a0a9/viewmodel-1.1.0/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/bapaq/.gradle/caches/transforms-2/files-2.1/c06d85bc43379e950603fd5693ef4696/runtime-1.1.0/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] /home/bapaq/.gradle/caches/transforms-2/files-2.1/0a2bdce0da8cfd5c768a5af1598d6c65/runtime-1.1.0/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:17:1-34:12
+INJECTED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:17:1-34:12
+INJECTED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:17:1-34:12
+	package
+		ADDED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:18:5-45
+		INJECTED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml
+		INJECTED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml
+		ADDED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:17:1-34:12
+		INJECTED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml
+		ADDED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:17:1-34:12
+		INJECTED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:17:11-69
+application
+ADDED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:20:5-32:19
+	android:supportsRtl
+		ADDED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:24:9-35
+	android:label
+		ADDED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:23:9-41
+	android:icon
+		ADDED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:22:9-43
+	android:allowBackup
+		ADDED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:21:9-35
+	android:theme
+		ADDED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:25:9-40
+activity#com.example.android.SimpleCalc.MainActivity
+ADDED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:26:9-31:20
+	android:name
+		ADDED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:26:19-77
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:27:13-30:29
+action#android.intent.action.MAIN
+ADDED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:28:17-69
+	android:name
+		ADDED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:28:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:29:17-77
+	android:name
+		ADDED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml:29:27-74
+uses-sdk
+INJECTED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml
+INJECTED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/bapaq/.gradle/caches/transforms-2/files-2.1/9bab41cd1cac7e96d8cf039a3df31825/appcompat-v7-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/bapaq/.gradle/caches/transforms-2/files-2.1/9bab41cd1cac7e96d8cf039a3df31825/appcompat-v7-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /home/bapaq/.gradle/caches/transforms-2/files-2.1/af44a2020543186d4e4449c2c57f9562/support-fragment-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /home/bapaq/.gradle/caches/transforms-2/files-2.1/af44a2020543186d4e4449c2c57f9562/support-fragment-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/bapaq/.gradle/caches/transforms-2/files-2.1/1f2892c38e9840c58ab405413fb28632/animated-vector-drawable-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/bapaq/.gradle/caches/transforms-2/files-2.1/1f2892c38e9840c58ab405413fb28632/animated-vector-drawable-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/bapaq/.gradle/caches/transforms-2/files-2.1/737391e76ecd5748c55f71a982c2dc3e/support-core-ui-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/bapaq/.gradle/caches/transforms-2/files-2.1/737391e76ecd5748c55f71a982c2dc3e/support-core-ui-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/bapaq/.gradle/caches/transforms-2/files-2.1/ec9a9e48e73878aaa31602796e8d1fcf/support-core-utils-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/bapaq/.gradle/caches/transforms-2/files-2.1/ec9a9e48e73878aaa31602796e8d1fcf/support-core-utils-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/bapaq/.gradle/caches/transforms-2/files-2.1/d71c4a7453c2c65e83a32ca7f1ac2b2d/support-vector-drawable-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/bapaq/.gradle/caches/transforms-2/files-2.1/d71c4a7453c2c65e83a32ca7f1ac2b2d/support-vector-drawable-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/bapaq/.gradle/caches/transforms-2/files-2.1/ea0ee35f22a88ff9d8bac691cda371e2/support-compat-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/bapaq/.gradle/caches/transforms-2/files-2.1/ea0ee35f22a88ff9d8bac691cda371e2/support-compat-27.1.1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/bapaq/.gradle/caches/transforms-2/files-2.1/92a577ba1cbf7d21b00d35b3ea7a240d/livedata-core-1.1.0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/bapaq/.gradle/caches/transforms-2/files-2.1/92a577ba1cbf7d21b00d35b3ea7a240d/livedata-core-1.1.0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/bapaq/.gradle/caches/transforms-2/files-2.1/ef6843ea5770e504c24b448e1bb8a0a9/viewmodel-1.1.0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/bapaq/.gradle/caches/transforms-2/files-2.1/ef6843ea5770e504c24b448e1bb8a0a9/viewmodel-1.1.0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/bapaq/.gradle/caches/transforms-2/files-2.1/c06d85bc43379e950603fd5693ef4696/runtime-1.1.0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/bapaq/.gradle/caches/transforms-2/files-2.1/c06d85bc43379e950603fd5693ef4696/runtime-1.1.0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/bapaq/.gradle/caches/transforms-2/files-2.1/0a2bdce0da8cfd5c768a5af1598d6c65/runtime-1.1.0/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/bapaq/.gradle/caches/transforms-2/files-2.1/0a2bdce0da8cfd5c768a5af1598d6c65/runtime-1.1.0/AndroidManifest.xml:20:5-44
+INJECTED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml
+INJECTED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml
+		ADDED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml
+		INJECTED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml
+		ADDED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml
+		INJECTED from /home/bapaq/AndroidFundamental/SimpleCalc/app/src/main/AndroidManifest.xml

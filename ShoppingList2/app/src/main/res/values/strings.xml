@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Shopping List 2</string>
+    <string name="Item_10">Cheese</string>
+    <string name="Item_1">Rice</string>
+    <string name="Item_2">Apples</string>
+    <string name="Item_3">Sugars</string>
+    <string name="Item_4">Salt</string>
+    <string name="Item_5">Tofu</string>
+    <string name="Item_9">Vegetables</string>
+    <string name="Item_8">Chicken Meat</string>
+    <string name="Item_7">Beef</string>
+    <string name="Item_6">Pepper</string>
+    <string name="shop_location">Shop Location</string>
+    <string name="shop_loc">Borma Cikutra</string>
+</resources>

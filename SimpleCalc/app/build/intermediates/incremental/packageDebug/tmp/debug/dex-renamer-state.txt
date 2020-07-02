@@ -1,0 +1,4 @@
+#Thu Jul 02 15:33:22 WIB 2020
+base.0=/home/bapaq/AndroidFundamental/SimpleCalc/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

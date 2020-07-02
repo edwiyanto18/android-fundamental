@@ -1,0 +1,317 @@
+Android fundamentals 02.3: Implicit intents
+*******************************************
+
+In this practical you build an app that sends an implicit intent to perform each of the following tasks:
+
+    Open a URL in a web browser.
+    Open a location on a map.
+    Share text.
+
+Sharing—sending a piece of information to other people through email or social media—is a popular feature in many apps. For the sharing action you use the ShareCompat.IntentBuilder class, which makes it easy to build an implicit intent for sharing data.
+
+Finally, you create a simple intent-receiver that accepts an implicit intent for a specific action. 
+
+Task 1 : Create the Project and Layout
+---------------------------------------
+
+1.1 Create the project
+
+    Start Android Studio and create a new Android Studio project. Name your app Implicit Intents.
+    Choose Empty Activity for the project template. Click Next.
+    Accept the default Activity name (MainActivity). Make sure the Generate Layout file box is checked. Click Finish.
+
+1.2 Create the layout
+
+In this task, create the layout for the app. Use a LinearLayout, three Button elements, and three EditText elements.
+
+Open app > res > values > strings.xml in the Project > Android pane, and add the following string resources:
+
+	<string name="edittext_uri">http://developer.android.com</string>
+	<string name="button_uri">Open Website</string>
+
+	<string name="edittext_loc">Golden Gate Bridge</string>
+	<string name="button_loc">Open Location</string>
+
+	<string name="edittext_share">\'Twas brillig and the slithy toves</string>
+	<string name="button_share">Share This Text</string>
+
+
+Open res > layout > activity_main.xml in the Project > Android pane. Click the Text tab to switch to XML code.
+Change android.support.constraint.ConstraintLayout to LinearLayout, as you learned in a previous practical.
+Add the android:orientation attribute with the value "vertical". Add the android:padding attribute with the value "16dp".
+
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="com.example.android.implicitintents.MainActivity">
+
+Final Layout :
+----------------
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="com.example.android.implicitintents.MainActivity">
+
+    <EditText
+        android:id="@+id/website_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:text="@string/edittext_uri"/>
+
+    <Button
+        android:id="@+id/open_website_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:layout_marginBottom="24dp"
+        android:text="@string/button_uri"
+        android:onClick="openWebsite"/>
+
+    <EditText
+        android:id="@+id/location_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/edittext_uri"/>
+
+    <Button
+        android:id="@+id/open_location_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/button_loc"
+        android:onClick="openLocation"/>
+
+    <EditText
+        android:id="@+id/share_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/edittext_share"/>
+
+    <Button
+        android:id="@+id/share_text_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/button_share"
+        android:onClick="shareText"/>
+
+</LinearLayout>
+
+
+Task 2: Implement the Open Website button
+-----------------------------------------
+
+In MainActivity, add a private variable at the top of the class to hold the EditText object for the web site URI.
+
+	private EditText mWebsiteEditText;
+
+In the onCreate() method for MainActivity, use findViewById() to get a reference to the EditText instance and assign it to that private variable:
+
+	mWebsiteEditText = findViewById(R.id.website_edittext);
+
+The MainActivity file opens, and Android Studio generates a skeleton method for the openWebsite() handler. 
+
+public void openWebsite(View view) {
+   // Get the URL text.
+   String url = mWebsiteEditText.getText().toString();
+
+   // Parse the URI and create the intent.
+   Uri webpage = Uri.parse(url);
+   Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+
+   // Find an activity to hand the intent and start that activity.
+   if (intent.resolveActivity(getPackageManager()) != null) {
+       startActivity(intent);
+   } else {
+       Log.d("ImplicitIntents", "Can't handle this intent!");
+   }
+}
+
+
+Task 3: Implement the Open Location button
+------------------------------------------
+
+Add a private variable at the top of MainActivity to hold the EditText object for the location URI.
+
+	private EditText mLocationEditText;
+
+In the onCreate() method, use findViewByID() to get a reference to the EditText instance and assign it to that private variable:
+
+	mLocationEditText = findViewById(R.id.location_edittext);
+
+Android Studio generates a skeleton method in MainActivity for the openLocation() handler. 
+
+public void openLocation(View view) {
+   // Get the string indicating a location. Input is not validated; it is
+   // passed to the location handler intact.
+   String loc = mLocationEditText.getText().toString();
+
+   // Parse the location and create the intent.
+   Uri addressUri = Uri.parse("geo:0,0?q=" + loc);
+   Intent intent = new Intent(Intent.ACTION_VIEW, addressUri);
+
+   // Find an activity to handle the intent, and start that activity.
+   if (intent.resolveActivity(getPackageManager()) != null) {
+       startActivity(intent);
+   } else {
+       Log.d("ImplicitIntents", "Can't handle this intent!");
+   }
+}
+
+Task 4: Implement the Share This Text button
+----------------------------------------------
+In this task you implement sharing a bit of text in a text edit, using the ShareCompat.IntentBuilder class. 
+
+Add a private variable at the top of MainActivity to hold the EditText.
+
+	private EditText mShareTextEditText;
+
+
+In onCreate(), use findViewById() to get a reference to the EditText instance and assign it to that private variable:
+
+	mShareTextEditText = findViewById(R.id.share_edittext);
+
+The shareText() method should now look as follows:
+
+	public void shareText(View view) {
+        String txt = mShareTextEditText.getText().toString();
+        String mimeType = "text/plain";
+        ShareCompat.IntentBuilder
+                        .from(this)
+                        .setType(mimeType)
+                        .setChooserTitle(R.string.share_text_with)
+                        .setText(txt)
+                        .startChooser();
+	}
+
+
+Task 5: Receive an implicit Intent
+----------------------------------
+So far, you've created an app that uses an implicit Intent in order to launch some other app's Activity. In this task you look at the problem from the other way around: allowing an Activity in your app to respond to an implicit Intent sent from some other app.
+
+An Activity in your app can always be activated from inside or outside your app with an explicit Intent. To allow an Activity to receive an implicit Intent, you define an Intent filter in your app's AndroidManifest.xml file to indicate which types of implicit Intent your Activity is interested in handling.
+
+To match your request with a specific app installed on the device, the Android system matches your implicit Intent with an Activity whose Intent filters indicate that they can perform that action. If there are multiple apps installed that match, the user is presented with an app chooser that lets them select which app they want to use to handle that Intent.
+
+When an app on the device sends an implicit Intent, the Android system matches the action and data of that Intent with any available Activity that includes the right Intent filters. When the Intent filters for an Activity match the Intent:
+
+    If there is only one matching Activity, Android lets the Activity handle the Intent itself.
+    If there are multiple matches, Android displays an app chooser to allow the user to pick which app they'd prefer to execute that action.
+
+In this task you create a very simple app that receives an implicit Intent to open the URI for a web page. When activated by an implicit Intent, that app displays the requested URI as a string in a TextView. 
+
+Create the project and layout
+-----------------------------
+
+Create a new Android Studio project with the app name Implicit Intents Receiver and choose Empty Activity for the project template.
+Accept the default Activity name (MainActivity). Click Next.
+Make sure the Generate Layout file box is checked. Click Finish.
+Open activity_main.xml.
+In the existing ("Hello World") TextView , delete the android:text attribute. There's no text in this TextView by default, but you'll add the URI from the Intent in onCreate().
+
+Leave the layout_constraint attributes alone, but add the following attributes:
+
+	Attribute				Value
+	=================================================
+	android:id				"@+id/text_uri_message"
+
+	android:textSize		"18sp"
+
+	android:textStyle		"bold"
+
+
+Modify AndroidManifest.xml to add an Intent filter
+----------------------------------------------------
+Open the AndroidManifest.xml file.
+Note that MainActivity already has this Intent filter:
+
+	<intent-filter>
+	   <action android:name="android.intent.action.MAIN" />
+	   <category android:name="android.intent.category.LAUNCHER" />
+	</intent-filter>
+
+This Intent filter, which is part of the default project manifest, indicates that this Activity is the main entry point for your app (it has an Intent action of "android.intent.action.MAIN"), and that this Activity should appear as a top-level item in the launcher (its category is "android.intent.category.LAUNCHER").
+
+
+Add a second <intent-filter> tag inside <activity>, and include these elements :
+
+	<action android:name="android.intent.action.VIEW" />
+	<category android:name="android.intent.category.DEFAULT" />
+	<category android:name="android.intent.category.BROWSABLE" />
+	<data android:scheme="http" android:host="developer.android.com" />
+
+ These lines define an Intent filter for the Activity, that is, the kind of Intent that the Activity can handle. This Intent filter declares these elements:
+
+Filter type			Value									Matches
+
+action				"android.intent.action.VIEW"			Any Intent with view actions.
+
+category			"android.intent.category.DEFAULT"		Any implicit Intent. 
+															This category must be
+															included for your Activity 
+															to receive any implicit Intent.
+
+category			"android.intent.category.BROWSABLE"		Requests for browsable links 
+															from web pages, email, or other
+						 									sources.
+
+data				"android:scheme="http"					--> ternyata harus diganti https
+					"android:host="developer.android.com"	URIs that contain a scheme of http 
+															and a host name of developer.android.com.
+
+Note that the data filter has a restriction on both the kind of links it will accept and the hostname for those URIs. If you'd prefer your receiver to be able to accept any links, you can leave out the <data> element. --> parameter android:host bisa dihilangkan.
+
+	<application
+		android:allowBackup="true"
+		android:icon="@mipmap/ic_launcher"
+		android:label="@string/app_name"
+		android:roundIcon="@mipmap/ic_launcher_round"
+		android:supportsRtl="true"
+		android:theme="@style/AppTheme">
+		<activity android:name=".MainActivity">
+		    <intent-filter>
+		        <action android:name="android.intent.action.MAIN" />
+		        <category android:name="android.intent.category.LAUNCHER" />
+		    </intent-filter>
+
+		    <intent-filter>
+		        <action android:name="android.intent.action.VIEW" />
+		        <category android:name="android.intent.category.DEFAULT" />
+		        <category android:name="android.intent.category.BROWSABLE" />
+		        <data android:scheme="http" 
+		                            android:host="developer.android.com" />
+		    </intent-filter>
+		</activity>
+	</application>
+
+
+Process the Intent
+------------------
+
+    Open MainActivity.
+    In the onCreate() method, get the incoming Intent that was used to activate the Activity:
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		    super.onCreate(savedInstanceState);
+		    setContentView(R.layout.activity_main);
+
+		    Intent intent = getIntent();
+		    Uri uri = intent.getData();
+		    if (uri != null) {
+		        String uri_string = getString(R.string.uri_label)
+		               + uri.toString();
+		        TextView textView = findViewById(R.id.text_uri_message);
+		        textView.setText(uri_string);
+		    }
+	}
+
+
